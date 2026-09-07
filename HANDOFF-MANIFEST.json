@@ -8,6 +8,11 @@
   "generatedAt": "2026-09-04T00:00:00.000Z",
   "files": [
     {
+      "path": ".gitignore",
+      "bytes": 106,
+      "sha256": "820a5ce0827a1c8be684fc346b46809d515bfc1df49f19bc5ed4524583b2e22c"
+    },
+    {
       "path": "apps/ideal-day-lab/ARCHITECTURE.md",
       "bytes": 893,
       "sha256": "10199fae688c539be98c7e3cbd18310cf7d94cffc6df3a835ff76a540f41312d"
