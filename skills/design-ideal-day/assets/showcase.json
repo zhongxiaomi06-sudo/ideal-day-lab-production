@@ -1,0 +1,17 @@
+{
+  "contractVersion": 1,
+  "skill": "design-ideal-day",
+  "app": "ideal-day-lab",
+  "package": "@eazo/ideal-day-lab",
+  "port": 5101,
+  "title": "Ideal Day Lab",
+  "domain": "Design and rebalance one humane 24-hour day from real constraints.",
+  "scenario": "Shape a weekday with eight hours of sleep, focused work, movement, meals, care, and unallocated breathing room.",
+  "viewport": { "width": 390, "height": 844 },
+  "steps": [
+    "Open the intro and choose Start my day.",
+    "Create or adjust the sample blocks so the full day remains allocated.",
+    "Review the time ring and comparison insights, then save the plan or restart the day."
+  ],
+  "evidence": ["The edited 24-hour ring, one explicit tradeoff, and a reachable restart or saved-plan path."]
+}

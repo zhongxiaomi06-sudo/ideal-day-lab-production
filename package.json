@@ -1,23 +1,27 @@
 {
-  "name": "eazo-ideal-day-lab",
-  "version": "0.2.0",
+  "name": "eazo-ideal-day-lab-material-package",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Production candidate for the Eazo Ideal Day Lab mobile web experience.",
-  "license": "MIT",
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@11.12.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhongxiaomi06-sudo/ideal-day-lab-production.git"
+  },
   "engines": {
     "node": ">=24.20.0 <27",
-    "pnpm": "11.24.0"
+    "pnpm": ">=11.12.0 <12"
   },
   "scripts": {
-    "build": "pnpm --filter @eazo/ideal-day-lab build",
     "dev": "pnpm --filter @eazo/ideal-day-lab dev",
+    "lint": "oxlint --ignore-pattern '**/node_modules/**' --deny-warnings apps/ideal-day-lab packages scripts",
     "typecheck": "pnpm -r --if-present typecheck",
-    "lint": "oxlint --deny-warnings packages apps",
-    "test": "vitest run",
+    "test": "vitest run apps/ideal-day-lab/src --passWithNoTests",
+    "build": "pnpm --filter @eazo/ideal-day-lab build",
     "test:e2e": "playwright test",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "skill:validate": "node skills/design-ideal-day/scripts/showcase.mjs --json",
+    "integrity": "node scripts/validate-package.mjs",
+    "verify": "pnpm integrity && pnpm skill:validate && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
     "@playwright/test": "1.62.1",

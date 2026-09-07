@@ -1,7 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import {
-  DAY_MINUTES, classifyLocally, comparisons, planFromDraft, resizeSharedBoundary,
-  resizeSingleBoundary, sanitizeForShare, validateBlocks,
+  DAY_MINUTES, analyzeSBTI, SBTI_CODES, classifyLocally, comparisons, deleteAsOpenTime, deleteBlock, mergeOpenTime,
+  planFromDraft, resizeSharedBoundary, resizeSingleBoundary, samplePlan, sanitizeForShare,
+  splitBlock, validateBlocks,
 } from './domain';
 import type { Plan, TimeBlock } from './domain';
 
@@ -68,5 +69,145 @@ describe('Ideal Day production contracts', () => {
     const blocks = ids.map((categoryId, index) => ({ id: categoryId, title: categoryId, categoryId, startMin: index * 60, endMin: index * 60 + 60 }));
     const plan: Plan = { schemaVersion: 2, planId: 'all', title: 'All', locale: 'en-US', createdAt: '', updatedAt: '', blocks };
     expect(comparisons(plan).length).toBeGreaterThanOrEqual(20);
+  });
+
+  test('deleteAsOpenTime merges adjacent open-time blocks and conserves the day', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'A', categoryId: 'unallocated', startMin: 0, endMin: 480 },
+      { id: 'b', title: 'B', categoryId: 'work-study', startMin: 480, endMin: 960 },
+      { id: 'c', title: 'C', categoryId: 'unallocated', startMin: 960, endMin: 1440 },
+    ];
+    const result = deleteAsOpenTime(blocks, 'b');
+    expect(result).toHaveLength(1);
+    expect(result[0]).toMatchObject({ categoryId: 'unallocated', startMin: 0, endMin: 1440 });
+    expect(validateBlocks(result)).toEqual([]);
+  });
+
+  test('mergeOpenTime leaves non-open blocks untouched', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'A', categoryId: 'unallocated', startMin: 0, endMin: 60 },
+      { id: 'b', title: 'B', categoryId: 'work-study', startMin: 60, endMin: 120 },
+    ];
+    expect(mergeOpenTime(blocks)).toHaveLength(2);
+  });
+
+  test('splitBlock divides one block into two adjacent blocks preserving total minutes', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'Focus', categoryId: 'work-study', startMin: 0, endMin: 1440 },
+    ];
+    const result = splitBlock(blocks, 'a', 5);
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.blocks).toHaveLength(2);
+      expect(result.blocks[0]!.startMin).toBe(0);
+      expect(result.blocks[0]!.endMin).toBe(result.blocks[1]!.startMin);
+      expect(result.blocks[1]!.endMin).toBe(1440);
+      expect(result.blocks.reduce((sum, block) => sum + block.endMin - block.startMin, 0)).toBe(1440);
+      expect(validateBlocks(result.blocks)).toEqual([]);
+    }
+  });
+
+  test('splitBlock rejects a block too short to divide', () => {
+    const blocks: TimeBlock[] = [{ id: 'a', title: 'Tiny', categoryId: 'play', startMin: 0, endMin: 1 }];
+    const result = splitBlock(blocks, 'a', 5);
+    expect(result).toEqual({ ok: false, code: 'TOO_SHORT' });
+  });
+
+  test('deleteBlock removes a middle block, slides later blocks forward, and keeps 24h continuous', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'Sleep', categoryId: 'sleep', startMin: 0, endMin: 400 },
+      { id: 'b', title: 'Focus', categoryId: 'work-study', startMin: 400, endMin: 640 },
+      { id: 'c', title: 'Walk', categoryId: 'exercise', startMin: 640, endMin: 760 },
+      { id: 'd', title: 'Drift', categoryId: 'play', startMin: 760, endMin: 1440 },
+    ];
+    const result = deleteBlock(blocks, 'b');
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.blocks.map((b) => b.id)).toEqual(['a', 'c', 'd']);
+      expect(result.blocks[1]).toMatchObject({ id: 'c', startMin: 400, endMin: 520 }); // slid 240 min earlier, duration kept
+      expect(result.blocks[2]).toMatchObject({ id: 'd', startMin: 520, endMin: 1440 }); // absorbs freed span
+      expect(result.blocks.reduce((sum, block) => sum + block.endMin - block.startMin, 0)).toBe(1440);
+      expect(validateBlocks(result.blocks)).toEqual([]);
+    }
+  });
+
+  test('deleteBlock slides nothing when the first block is removed', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'A', categoryId: 'work-study', startMin: 0, endMin: 480 },
+      { id: 'b', title: 'B', categoryId: 'play', startMin: 480, endMin: 1440 },
+    ];
+    const result = deleteBlock(blocks, 'a');
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.blocks).toHaveLength(1);
+      expect(result.blocks[0]).toMatchObject({ id: 'b', startMin: 0, endMin: 1440 });
+      expect(validateBlocks(result.blocks)).toEqual([]);
+    }
+  });
+
+  test('deleteBlock absorbs into the previous block when the last one is removed', () => {
+    const blocks: TimeBlock[] = [
+      { id: 'a', title: 'A', categoryId: 'work-study', startMin: 0, endMin: 480 },
+      { id: 'b', title: 'B', categoryId: 'play', startMin: 480, endMin: 1440 },
+    ];
+    const result = deleteBlock(blocks, 'b');
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.blocks).toHaveLength(1);
+      expect(result.blocks[0]).toMatchObject({ id: 'a', startMin: 0, endMin: 1440 });
+    }
+  });
+
+  test('deleteBlock rejects unknown ids and a single remaining block', () => {
+    const blocks: TimeBlock[] = [{ id: 'a', title: 'A', categoryId: 'work-study', startMin: 0, endMin: 1440 }];
+    expect(deleteBlock(blocks, 'nope')).toEqual({ ok: false, code: 'NOT_FOUND' });
+    expect(deleteBlock(blocks, 'a')).toEqual({ ok: false, code: 'TOO_FEW' });
+  });
+
+  test('samplePlan fills exactly 1,440 minutes with valid, localized blocks', () => {
+    const plan = samplePlan('zh-CN');
+    expect(plan.blocks.reduce((sum, block) => sum + block.endMin - block.startMin, 0)).toBe(DAY_MINUTES);
+    expect(validateBlocks(plan.blocks)).toEqual([]);
+    expect(plan.blocks[0]).toMatchObject({ categoryId: 'sleep', startMin: 0, endMin: 400 });
+    expect(plan.blocks.at(-1)).toMatchObject({ categoryId: 'play', endMin: 1440 });
+    expect(plan.blocks.some((block) => block.title.includes('睡'))).toBe(true);
+    expect(plan.locale).toBe('zh-CN');
+    // English plan titles differ.
+    const en = samplePlan('en-US');
+    expect(en.blocks[0]!.title).toBe('Sleep well');
+  });
+
+  test('analyzeSBTI derives an SBTI code and four abstract axes from category totals', () => {
+    const plan = samplePlan('en-US');
+    const reading = analyzeSBTI(plan);
+    expect(SBTI_CODES).toContain(reading.code);
+    expect(reading.axes).toHaveLength(4);
+    for (const axis of reading.axes) {
+      expect(axis.leftPct).toBeGreaterThanOrEqual(0);
+      expect(axis.leftPct).toBeLessThanOrEqual(100);
+      expect(axis.winner).toBe(axis.leftPct >= 50 ? axis.leftKey : axis.rightKey);
+    }
+    expect(reading.sleepMin).toBe(400);
+    expect(reading.createMin).toBe(630); // work-study 280 + personal 180 + play 170
+    expect(reading.socialMin).toBe(290); // social 60 + care 110 + food 120
+  });
+
+  test('analyzeSBTI stays stable when open time dominates', () => {
+    const plan: Plan = { schemaVersion: 2, planId: 'p', title: 'P', locale: 'en-US', createdAt: '', updatedAt: '', blocks: [
+      { id: 'a', title: 'Open', categoryId: 'unallocated', startMin: 0, endMin: 1440 },
+    ] };
+    const reading = analyzeSBTI(plan);
+    expect(reading.openMin).toBe(1440);
+    expect(reading.code).toBe('OJBK');
+  });
+
+  test('analyzeSBTI maps extreme days to the expected meme types', () => {
+    const day = (categoryId: TimeBlock['categoryId'], startMin: number, endMin: number): TimeBlock => ({ id: `b${startMin}`, title: categoryId, categoryId, startMin, endMin });
+    // All-sleep day → ZZZZ (the sleeper).
+    expect(analyzeSBTI({ schemaVersion: 2, planId: 'p', title: 'P', locale: 'en-US', createdAt: '', updatedAt: '', blocks: [day('sleep', 0, 1440)] }).code).toBe('ZZZZ');
+    // Crunchy full workday → BOSS (the leader).
+    expect(analyzeSBTI({ schemaVersion: 2, planId: 'p', title: 'P', locale: 'en-US', createdAt: '', updatedAt: '', blocks: [
+      day('sleep', 0, 360), day('work-study', 360, 480), day('work-study', 480, 780), day('work-study', 780, 1080), day('work-study', 1080, 1440),
+    ] }).code).toBe('BOSS');
   });
 });

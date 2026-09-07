@@ -1,31 +1,24 @@
 # Ideal Day Lab
 
-Turn the ingredients of an ideal day into exactly 1,440 editable minutes, then reveal the delightful yearly scale of those choices.
+Independent GitHub delivery repository for the Eazo Mini App `ideal-day-lab`. This repository contains exactly one Mini App and its paired reusable Skill.
 
-Status: **D2-exit candidate / D3 blocked on human and physical-device evidence.** See [the production audit](apps/ideal-day-lab/PRODUCTION-AUDIT.md).
-
-## Product
-
-- Natural-language and voice-assisted input with a deterministic private fallback.
-- Integer-minute 24-hour conservation, shared-boundary editing, four snap modes, and 50-step undo/redo.
-- Twenty sourced editorial comparisons with formula, units and rounding disclosure.
-- A private IndexedDB library of up to 20 days with remix and reversible deletion.
-- Privacy-safe Eazo sharing through the official `@eazo/sdk`, with a local JSON fallback.
-- Mobile-first, keyboard-operable, reduced-motion aware, and offline-ready after first load.
+- App source: [`apps/ideal-day-lab`](./apps/ideal-day-lab/)
+- Skill: [`skills/design-ideal-day`](./skills/design-ideal-day/)
+- Delivery status: [`HANDOFF-STATUS.md`](./HANDOFF-STATUS.md)
+- GitHub: https://github.com/zhongxiaomi06-sudo/ideal-day-lab-production
 
 ## Run
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm verify
-pnpm test:e2e
 pnpm dev
 ```
 
-Node 24.20+ and pnpm 11.24 are required. The production bundle is emitted to `apps/ideal-day-lab/dist`.
+## Verify
 
-## Stage truth
+```bash
+pnpm verify
+pnpm test:e2e
+```
 
-The application code and emulated mobile evidence are complete for the eight `DAY-REQ` contracts. D3 and D4 are intentionally not claimed until two physical-device runs, North American English and aesthetic reviewer signatures, Eazo Mobile AI/speech acceptance, share-intent research and release authorization are attached.
-
-MIT licensed. Comparison content and the generated social card are recorded in the product rights ledger.
+The repository state remains governed by the app's `RELEASE.md`; a successful build is not Owner approval or `READY_FOR_EAZO`.

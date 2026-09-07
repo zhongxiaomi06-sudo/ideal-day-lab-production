@@ -1,5 +1,6 @@
 import type { EazoHostPort, HostCapabilities, HostResult, PlanDraftV1, SharePayload } from '@eazo/contracts';
 import { WebFallbackAdapter } from '@eazo/platform';
+import { share } from '@eazo/sdk';
 
 export class ProductionEazoAdapter extends WebFallbackAdapter implements EazoHostPort {
   override async getLocale() { return navigator.language || 'en-US'; }
@@ -23,7 +24,6 @@ export class ProductionEazoAdapter extends WebFallbackAdapter implements EazoHos
 
   override async share(payload: SharePayload): Promise<HostResult<{ shareId: string; url: string }>> {
     try {
-      const { share } = await import('@eazo/sdk');
       const accepted = await share.compose({
         text: `My ideal 24 hours\n\n${JSON.stringify(payload.publicData)}`,
         sourceAppId: 'ideal-day-lab',

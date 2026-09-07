@@ -1,0 +1,441 @@
+{
+  "version": 1,
+  "state": "BUILDING",
+  "app": "ideal-day-lab",
+  "package": "@eazo/ideal-day-lab",
+  "port": 5101,
+  "skill": "design-ideal-day",
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "files": [
+    {
+      "path": "apps/ideal-day-lab/ARCHITECTURE.md",
+      "bytes": 893,
+      "sha256": "10199fae688c539be98c7e3cbd18310cf7d94cffc6df3a835ff76a540f41312d"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/comparison-ledger.json",
+      "bytes": 5343,
+      "sha256": "cfe740b8d63004e08cd87b5717a5ac667ff0ccc71b9638a6cd92a7c29d8c1234"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/data-manifest.json",
+      "bytes": 2815,
+      "sha256": "8663cbb157ee16d2a446798a1bcfde7a9558da74fc360cae43e5f10897b28de7"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/day-dawn.mp4",
+      "bytes": 53842,
+      "sha256": "e4eabb9229a2bc0c51cdc4494a98ef29764832c425ad82c835caac54260193cd"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/day-focus.mp4",
+      "bytes": 84698,
+      "sha256": "1614a2e7d19382d662f8d8a699e803c9c4035885379e56da6de8d5e52d5ca2b7"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/day-make.mp4",
+      "bytes": 39049,
+      "sha256": "245d19a3503ad8838c3c0a5d4d9a948c3a7fb8fe78a3a3bc38ceaef13bc4b2bf"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/day-parts.png",
+      "bytes": 2248870,
+      "sha256": "471de95f3c6516d6c6a5b3c0de7cc5f323e5966df4414c96cb010d548bdf31b1"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/fixture.json",
+      "bytes": 327,
+      "sha256": "ab5329ec19dd496675534deaa9a5500844251f198aa5f2f8e79b58cbf4a130a4"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/og.png",
+      "bytes": 1097597,
+      "sha256": "c52ede5ef7cab07a91ca49846759d8e667c3f3c1bf01011aac1a3bb72e0413af"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/rights-ledger.tsv",
+      "bytes": 1008,
+      "sha256": "7d28d06546970411caad0283584f89be6bd8e5eee801ddc091a7b52e639a6c72"
+    },
+    {
+      "path": "apps/ideal-day-lab/content/sw.js",
+      "bytes": 740,
+      "sha256": "a536ac1a9c2bfc65f8855c988e3817c6b9f13b9583fb5f14331897bffaa7d85e"
+    },
+    {
+      "path": "apps/ideal-day-lab/CONTENT.md",
+      "bytes": 815,
+      "sha256": "95accc7af522718440acad2b4034c366cd1e070f894c2bd4f1bab09936b96bce"
+    },
+    {
+      "path": "apps/ideal-day-lab/DESIGN.md",
+      "bytes": 1100,
+      "sha256": "f389ffa3273c9ef18f65800f3ab1748511ef7eaf69425824bbd4702de06c54e9"
+    },
+    {
+      "path": "apps/ideal-day-lab/development-input.json",
+      "bytes": 359,
+      "sha256": "16b71333c495de9d4a5e80759b2b6ced61223e8703fb0a223447cd8ea6b1a861"
+    },
+    {
+      "path": "apps/ideal-day-lab/index.html",
+      "bytes": 1662,
+      "sha256": "ccd467d34e2a7ee649e164736ca39416227360f70275ac39937eef904a6aac28"
+    },
+    {
+      "path": "apps/ideal-day-lab/package.json",
+      "bytes": 609,
+      "sha256": "c31ed472ae4b56d8ff312c1dcc80b358a89b0823682f98fb0220128d00e7ba77"
+    },
+    {
+      "path": "apps/ideal-day-lab/PRODUCT.md",
+      "bytes": 956,
+      "sha256": "6ec705b110d9228bc9aaaed52a287a3480e58a01772a98ccfe6ef4186f5d619f"
+    },
+    {
+      "path": "apps/ideal-day-lab/README.md",
+      "bytes": 833,
+      "sha256": "2938c516cf70b991b884c4cbd40353abc6e9ce65770edd3e083d5f70cf19931a"
+    },
+    {
+      "path": "apps/ideal-day-lab/RELEASE.md",
+      "bytes": 1141,
+      "sha256": "5e92d855470e12f9c5563859b362cd759d5b65921b2c346de26b46c72e35cdf2"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/App.tsx",
+      "bytes": 39733,
+      "sha256": "0d4780a0414c16e3a6fe4fb7b33e2a5be805d49af980227e1dff08a1f6f2742b"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/components/eazo/annotation-mode.tsx",
+      "bytes": 13046,
+      "sha256": "dd4f3e5d8877cf7d76f0b1c8b07d2d0a7ed3ef24e84cf20f151c0bca82410bb0"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/components/eazo/preview-inspector.tsx",
+      "bytes": 3042,
+      "sha256": "019a220ade3fac0b54399c563fe6e5489a539374ea097e628f7e521e0b9efd11"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/domain.test.ts",
+      "bytes": 11204,
+      "sha256": "e1036669f8d16441321cc7cfb8e305a38cb9538d9cc6f9d85f95cac1687f387a"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/domain.ts",
+      "bytes": 23579,
+      "sha256": "82cd3ac8d30e59efb9358434fb159dc6f04c8828023a60ee5824614cc8d58b07"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/eazo.ts",
+      "bytes": 1549,
+      "sha256": "48af2ee67fbcd81cc99ceb62c3f61c06e177d1d37f0e8065a4d8c9b7cfc0d939"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/i18n.tsx",
+      "bytes": 2504,
+      "sha256": "80e587050c1cb24331fe5514bf602af8a34e03012b45b27067aad265358dabc7"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/locales.ts",
+      "bytes": 30429,
+      "sha256": "141799dbd07b011eef58491dee275658344861a59594b196588728e3f18409e0"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/main.tsx",
+      "bytes": 765,
+      "sha256": "805506f9f4d6a2baec9f6e31265c9adc74c2d0cb5865654f470737f535e65cbb"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/repository.ts",
+      "bytes": 5062,
+      "sha256": "956b70b2782f8f544bfe4c357d3b06ba051419660f052e06a6fc6b8df924724d"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/sound.ts",
+      "bytes": 4468,
+      "sha256": "8417694725bf70435e0146bfd7f578e39a4788d72567ef1a24a9b3f97720b8d7"
+    },
+    {
+      "path": "apps/ideal-day-lab/src/styles.css",
+      "bytes": 42415,
+      "sha256": "e5834b2a39b70ac0e97dd25ca348618ad6a9e3edc51350f820ae07c2a2d5b16f"
+    },
+    {
+      "path": "apps/ideal-day-lab/TESTING.md",
+      "bytes": 1230,
+      "sha256": "4c7824c712635d8335664ebe8827599601a882e0afc96b3d33bcf801cdf7171b"
+    },
+    {
+      "path": "apps/ideal-day-lab/tests/e2e/project.spec.ts",
+      "bytes": 1020,
+      "sha256": "a28c41859847ca9f39bb7f101662124d5324830e976987e56389f2897ceb3c40"
+    },
+    {
+      "path": "apps/ideal-day-lab/tsconfig.json",
+      "bytes": 93,
+      "sha256": "6756ac060ae671932cefe722e96648eaed3183c45f835cccec5a751988ef22db"
+    },
+    {
+      "path": "apps/ideal-day-lab/vite.config.ts",
+      "bytes": 1237,
+      "sha256": "169fc7695c23cf1ce30ec76d7e7978e82d95524ee47fc13e4c536c0b3412ec82"
+    },
+    {
+      "path": "config/eazo-sdk-browser-shims.ts",
+      "bytes": 1768,
+      "sha256": "b137815f6ba411790bc3aa1e28508e31cdad86f4e6bb443925fcedb92f1c4cd0"
+    },
+    {
+      "path": "docs/standards/ASSET-SOURCES.md",
+      "bytes": 4126,
+      "sha256": "ac470b18df90934fadc4b051421ac83640d118c6a514c9753e9d82ef6d74b506"
+    },
+    {
+      "path": "docs/standards/COMPONENTS.md",
+      "bytes": 1037,
+      "sha256": "f31750c8139186b8056a4e432b50f08a9769c2908a626b37f7d08133aea533a5"
+    },
+    {
+      "path": "docs/standards/DESIGN.md",
+      "bytes": 2430,
+      "sha256": "5dc285b66e2b006af025c02e1fea846c8caf9b85cee9bfb21a7e55b96232ca7e"
+    },
+    {
+      "path": "docs/standards/DOCUMENTATION.md",
+      "bytes": 860,
+      "sha256": "0573f986c1b5e7dd84c1ec705b7e65f3833d4b2f9c82cfa375170678eea0ca58"
+    },
+    {
+      "path": "docs/standards/EAZO-HANDOFF.md",
+      "bytes": 601,
+      "sha256": "67411a26ee69c4ee0088ed1cea1224d955347d35d6d769416586b55377315ab7"
+    },
+    {
+      "path": "docs/standards/INHOUSE-QUALITY.md",
+      "bytes": 1754,
+      "sha256": "8bc62d8ea28ada36c07e84642d8e94d3c3cca8b37bf16d63fbadeb5b5ace2fc9"
+    },
+    {
+      "path": "docs/standards/MOBILE.md",
+      "bytes": 1509,
+      "sha256": "8dadf24c5fad596581ebbe1dcfcc2338649b1e759c8ebfa7888c5d30f7c17a82"
+    },
+    {
+      "path": "docs/standards/OWNER-PREFERENCES.md",
+      "bytes": 3277,
+      "sha256": "8c0d0f459935e92f32d19a566069570e8e784afce9b88717d5bca278c7083ea3"
+    },
+    {
+      "path": "docs/standards/WORKFLOW.md",
+      "bytes": 1183,
+      "sha256": "a53c2e7a1cd9724e6f5b28c6585eaab213d4133329f97ca2cb714f9513a07545"
+    },
+    {
+      "path": "HANDOFF-STATUS.md",
+      "bytes": 552,
+      "sha256": "c6762cd21c118e239b1b847c7bc8bb700cc268b2e449ea99c596fbf91810524b"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "c1e9d58176c0bfcd1b6070c01f47dfeff53ba3e94fd33e1b3740b326953fe71c"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1213,
+      "sha256": "7abdcf201a2ba7cb75d9884cd5eb4963a8d4227d0f92bd6a083cdadd12f1b371"
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "bytes": 281,
+      "sha256": "91e856548e2fb889d59e89883b0d9f2ffacef975dfea9a65825e4a10ede6dae5"
+    },
+    {
+      "path": "packages/contracts/src/flags.ts",
+      "bytes": 488,
+      "sha256": "d3aebc9fcd510cfae5129c677768728fce3a855e383feb938cec9a65863d093c"
+    },
+    {
+      "path": "packages/contracts/src/host.ts",
+      "bytes": 2685,
+      "sha256": "ff385dac6accbc1e769b86607d682e63d8f90e0d5014ee4fb8c60713f638df0f"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "bytes": 108,
+      "sha256": "69afaedb243b29310a7659c67ac8d4cafd0e1115995bde7260c8450b826b1412"
+    },
+    {
+      "path": "packages/contracts/src/manifest.ts",
+      "bytes": 958,
+      "sha256": "f81851835841509461ac9cf08fbd9c96112c1898c65a85d041f7ca67acddd50f"
+    },
+    {
+      "path": "packages/contracts/src/test-result.ts",
+      "bytes": 559,
+      "sha256": "2e00572afcbe6ce24ad638cee442c99ce25cc38d3537b60981604c8568591999"
+    },
+    {
+      "path": "packages/contracts/tsconfig.json",
+      "bytes": 66,
+      "sha256": "8f6e85eeaa8025fe7b2f01763e03f32540d3e2869ae857490d685098460f4e3a"
+    },
+    {
+      "path": "packages/platform/package.json",
+      "bytes": 385,
+      "sha256": "7af6fe1429ebf7c4681ac87b81a20f58bae7565712637b1973d5c918e89ff62b"
+    },
+    {
+      "path": "packages/platform/src/adapters.ts",
+      "bytes": 7499,
+      "sha256": "09af8fd46e0f8125f969a18331c6b66891ee579a1329d496c76b1e755dc78b01"
+    },
+    {
+      "path": "packages/platform/src/atomic-cache.ts",
+      "bytes": 715,
+      "sha256": "4e309f8ee556b98d52ff6d4aa1dfe4ff9be03e5829b86161e5ea96fc190204f6"
+    },
+    {
+      "path": "packages/platform/src/flags.ts",
+      "bytes": 1330,
+      "sha256": "b5a9daafbb53db4fb6f7f834deb11ad8a27595a7c01ab5ea79f1babe9f92e8f8"
+    },
+    {
+      "path": "packages/platform/src/index.ts",
+      "bytes": 123,
+      "sha256": "1e00b9e33d8a134bb2407c805f959b17ee9132d90f71e20b27d37094a784f3b5"
+    },
+    {
+      "path": "packages/platform/src/manifest-validator.ts",
+      "bytes": 974,
+      "sha256": "adb10964949eabde5c992bf2a6b961f712488aaf2bf5f3656228900c24284542"
+    },
+    {
+      "path": "packages/platform/src/platform.test.ts",
+      "bytes": 7147,
+      "sha256": "a6d4f9dfb0ba1dc68a7e60966e8e833b3f62fd19de83557e9c7fe8ee3d678701"
+    },
+    {
+      "path": "packages/platform/tsconfig.json",
+      "bytes": 66,
+      "sha256": "8f6e85eeaa8025fe7b2f01763e03f32540d3e2869ae857490d685098460f4e3a"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "bytes": 469,
+      "sha256": "1f6627e76b50443065e4c519140b00a85dd7fe4fa68bc545df1eecf8d0ab0adb"
+    },
+    {
+      "path": "packages/ui/src/audio.test.ts",
+      "bytes": 3605,
+      "sha256": "ab46cab74e088e1f6487bb68726d1d22ff0d2048ab59fca238b52774e03313ab"
+    },
+    {
+      "path": "packages/ui/src/audio.ts",
+      "bytes": 2871,
+      "sha256": "c802e4c47094746e2f3e83679778bbd0cf32ed2fee236ba4ffc20b67e33aa2d1"
+    },
+    {
+      "path": "packages/ui/src/device.test.ts",
+      "bytes": 2905,
+      "sha256": "dcc78a7324ee4264d598ad0a3b4246496d0c78849001f57aeef2b518f5140b7a"
+    },
+    {
+      "path": "packages/ui/src/device.ts",
+      "bytes": 1199,
+      "sha256": "8469d7ef420f0c7c6d07be2688953f88c871e37603d2598fbc6343caf57c0cbf"
+    },
+    {
+      "path": "packages/ui/src/ExperienceShell.tsx",
+      "bytes": 1284,
+      "sha256": "8eaae5210678fb1016f61772f416f2fa2a7e4da7e19bcbcf1f00b7e35eef9dfd"
+    },
+    {
+      "path": "packages/ui/src/index.ts",
+      "bytes": 152,
+      "sha256": "4a139637c93ba2b17a40fbd1532e51706b25408095dc0fa02a287e8b9b0a25d5"
+    },
+    {
+      "path": "packages/ui/src/MobilePrimitives.tsx",
+      "bytes": 2078,
+      "sha256": "cc184b309ec78345b026cbd09ac110bc8165596ee86f06f9ecb20aaaa9a12edc"
+    },
+    {
+      "path": "packages/ui/src/ResultCard.tsx",
+      "bytes": 773,
+      "sha256": "36d7a3284e2436f03d7e38cfe9790a3e2c3e8cb079e3cae270a7df8ee89cf932"
+    },
+    {
+      "path": "packages/ui/src/styles.css",
+      "bytes": 4389,
+      "sha256": "c14dddb0ebbc31e282df19cd4d872a396e3e227b48049004ef7f8d0eeb8de944"
+    },
+    {
+      "path": "packages/ui/tsconfig.json",
+      "bytes": 66,
+      "sha256": "8f6e85eeaa8025fe7b2f01763e03f32540d3e2869ae857490d685098460f4e3a"
+    },
+    {
+      "path": "playwright.config.ts",
+      "bytes": 978,
+      "sha256": "c38338018076a9b6066c50812485ae76d27e7fb7a6a04c0bb3d47d717d1d26a6"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 90586,
+      "sha256": "81aff718f0261a4244eae975336d7cb68253b822f67cd92db672db16a5f437a1"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "bytes": 137,
+      "sha256": "19669c97b8b99868afef6734bcd6d9b45706aaf7eff0c2d9ea3ce6086bb09462"
+    },
+    {
+      "path": "README.md",
+      "bytes": 672,
+      "sha256": "538658c095237ebea6814dfffa8e66cc6088ea956934d82650738211a588504a"
+    },
+    {
+      "path": "scripts/validate-package.mjs",
+      "bytes": 1238,
+      "sha256": "718ac5a73ddde3132a249e5b7cf2ea3f62195ecf52ed5cc75bf1fc3e8c32c16c"
+    },
+    {
+      "path": "skills/design-ideal-day/agents/openai.yaml",
+      "bytes": 224,
+      "sha256": "bf5a29e6abea6a7604dad4a4b2708b094dd565b278f2516393e67f660060e200"
+    },
+    {
+      "path": "skills/design-ideal-day/assets/showcase.json",
+      "bytes": 766,
+      "sha256": "322e672283950ccba364dec3847f1712eafbf1587d93767171060540f9cae88d"
+    },
+    {
+      "path": "skills/design-ideal-day/scripts/showcase.mjs",
+      "bytes": 1041,
+      "sha256": "42503a77e9523792042c226860141002db5344b8b03f15406912ca9d7921b87c"
+    },
+    {
+      "path": "skills/design-ideal-day/SKILL.md",
+      "bytes": 1073,
+      "sha256": "9d34403d221fb8ac5791aa2a5e2499555b7f420102f7a1907717b26c12005dbc"
+    },
+    {
+      "path": "tests/e2e/support.ts",
+      "bytes": 2039,
+      "sha256": "396010d9059d024c846bc0276c17f015b72a1c9ee09b1e5bf493df3515749a42"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 616,
+      "sha256": "a0100d2f3c18f32db2cfffbe16bd3c891fdeafbfc2262bf22f9be2ec8ce99101"
+    },
+    {
+      "path": "types.d.ts",
+      "bytes": 62,
+      "sha256": "78e91e6407bfc80e012efa2602f3ee2a17cd571170a206d7c5656858c2e9ab25"
+    }
+  ]
+}

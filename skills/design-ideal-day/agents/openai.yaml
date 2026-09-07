@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design an Ideal Day"
+  short_description: "Shape one day and see its tradeoffs"
+  default_prompt: "Use $design-ideal-day to shape my constraints into a 24-hour plan and show it in Ideal Day Lab."
